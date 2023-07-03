@@ -1,0 +1,123 @@
+<br />
+<section style="height: 300px; background-color: #3a333b">
+  <br />
+  <div class="titelDetail">DETAILS PRODUCT</div>
+  <br />
+</section>
+<br />
+<div class="container detail">
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+          <div class="preview-pic tab-content">
+            <div class="tab-pane active" id="pic-1">
+              <img
+                style="height: 450px"
+                src="../../../../src/main/static/image/{{detail.image}}"
+              />
+            </div>
+            <div class="tab-pane" id="pic-2">
+              <img src="http://placekitten.com/400/252" />
+            </div>
+            <div class="tab-pane" id="pic-3">
+              <img src="http://placekitten.com/400/252" />
+            </div>
+            <div class="tab-pane" id="pic-4">
+              <img src="http://placekitten.com/400/252" />
+            </div>
+            <div class="tab-pane" id="pic-5">
+              <img src="http://placekitten.com/400/252" />
+            </div>
+          </div>
+          <ul class="preview-thumbnail nav nav-tabs">
+            <li class="active">
+              <a data-target="#pic-1" data-toggle="tab"
+                ><img src="../../../../src/main/static/image/{{detail.image}}"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-2" data-toggle="tab"
+                ><img src="../../../../src/main/static/image/{{detail.image}}"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-3" data-toggle="tab"
+                ><img src="../../../../src/main/static/image/{{detail.image}}"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-4" data-toggle="tab"
+                ><img src="../../../../src/main/static/image/{{detail.image}}"
+              /></a>
+            </li>
+            <li>
+              <a data-target="#pic-5" data-toggle="tab"
+                ><img src="../../../../src/main/static/image/{{detail.image}}"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="details col-md-6">
+          <p style="color: red; font-size: 20px">Sản phẩm:</p>
+          <h3 class="product-title">{{detail.sanPham.ten}}</h3>
+          <div class="rating">
+            <div class="stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+          <p class="product-description">{{detail.moTa}}</p>
+          <h4 class="price">
+            current price: <span>{{detail.giaBan | number:format}} VND</span>
+          </h4>
+          <p class="vote">
+            <strong>91%</strong> of buyers enjoyed this product!
+            <strong>(87 votes)</strong>
+          </p>
+          <h5 class="sizes">
+            kích thước:
+            <span
+              class="size"
+              data-toggle="tooltip"
+              title="small"
+              style="color: red"
+              >{{detail.size}}</span
+            >
+          </h5>
+          <h5 class="colors">
+            màu sắc:
+            <span
+              class="not-available"
+              data-toggle="tooltip"
+              title="Not In store"
+              style="color: red"
+              >{{detail.mauSac.ten}}</span
+            >
+          </h5>
+          <h5 class="sizes">
+            nhà sản xuất:
+            <span
+              class="size"
+              data-toggle="tooltip"
+              title="small"
+              style="color: red"
+              >{{detail.nhaSanXuat.ten}}</span
+            >
+          </h5>
+          <div class="action" style="margin-bottom: 35px">
+            <button class="add-to-cart btn btn-default" type="button">
+              add to cart
+            </button>
+            <button class="like btn btn-default" type="button">
+              <span class="fa fa-heart"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

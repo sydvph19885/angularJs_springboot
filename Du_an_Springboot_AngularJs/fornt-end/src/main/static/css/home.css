@@ -1,0 +1,29 @@
+.addCart {
+  border: 1px solid black;
+  border-radius: 60px;
+}
+.iconcart {
+  color: red;
+}
+.iconsee {
+  color: green;
+}
+.titel {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+.imgSize {
+  height: 300px;
+  border-radius: 100px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.cardSize {
+  border-radius: 100px;
+}
+/* .pagination {
+  display: flex;
+  justify-items: center; */
+/* } */

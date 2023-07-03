@@ -1,0 +1,107 @@
+<br />
+<section style="height: 300px; background-color: #3a333b">
+  <br />
+  <div
+    style="
+      text-align: center;
+      font-weight: bold;
+      font-size: 40px;
+      color: #ffffff;
+    "
+  >
+    XIN CHÀO
+  </div>
+  <br />
+  <form>
+    <div class="input-group flex-nowrap container">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Tìm kiếm"
+        ng-model="tenSearch"
+        aria-label="Username"
+        aria-describedby="addon-wrapping"
+      />
+      <button
+        type="button"
+        ng-click="search($event)"
+        class="input-group-text"
+        id="addon-wrapping"
+        style="background-color: orangered"
+      >
+        <i class="fa fa-search" aria-hidden="true" style="color: white"></i>
+      </button>
+    </div>
+  </form>
+</section>
+<br />
+<br />
+<p class="titel">DANH SÁCH SẢN PHẨM</p>
+<br />
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div
+      class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+    >
+      <div class="col-md-3 col-sm-6 col-12" ng-repeat="x in listSanPham">
+        <div class="card card-pro mb-2 cardSize">
+          <img
+            src="../../../../src/main/static/image/{{x.image}}"
+            class="card-img-top imgSize"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{x.sanPham.ten}}</h5>
+            <div class="card-text">
+              <div class="row">
+                <div class="col-7">{{x.giaBan | number:format}} VND</div>
+                <div class="col-5">{{x.gianNhap}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-4">
+                <a href="#detail/{{x.id}}" class="btn addCart"
+                  ><i class="fa fa-search-plus" aria-hidden="true"></i
+                ></a>
+              </div>
+              <div class="col-6">
+                <a href="#" class="btn addCart"
+                  ><i class="fa fa-cart-plus iconcart" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+<!-- page -->
+<section class="page container text-center">
+  <div aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- page -->
+<!-- loading -->
+<div class="text-center" ng-if="listSanPham === 0">
+  <div class="spinner-border text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

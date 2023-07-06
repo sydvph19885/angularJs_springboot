@@ -25,15 +25,38 @@
     <div class="col-8">
       <ul class="nav justify-content-center">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="#quan-li-san-pham"
+            >Manager</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#login">Login</a>
+          <a class="nav-link" href="#logout" ng-show="checkLogin == 'true'"
+            >Logout</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#login" ng-show="checkLogin === null"
+            >Login</a
+          >
         </li>
       </ul>
+    </div>
+    <div class="col-2">
+      <a
+        class="btn"
+        href="#cart"
+        type="button"
+        style="background-color: white; border-radius: 30px; margin-top: 5px"
+      >
+        <i class="fa fa-shopping-cart" style="color: black"></i>
+        <span class="badge badge-light" style="color: red">0</span>
+      </a>
     </div>
   </div>
 </section>

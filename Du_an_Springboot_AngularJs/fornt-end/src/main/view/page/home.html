@@ -46,11 +46,11 @@
       <div class="col-md-3 col-sm-6 col-12" ng-repeat="x in listSanPham">
         <div class="card card-pro mb-2 cardSize">
           <img
-            src="../../../../src/main/static/image/{{x.image}}"
+            src="http://localhost:8081/image/{{x.image}}"
             class="card-img-top imgSize"
           />
           <div class="card-body">
-            <h5 class="card-title">{{x.sanPham.ten}}</h5>
+            <h5 class="card-title">{{x.tenSanPham}}</h5>
             <div class="card-text">
               <div class="row">
                 <div class="col-7">{{x.giaBan | number:format}} VND</div>
@@ -65,7 +65,7 @@
                 ></a>
               </div>
               <div class="col-6">
-                <a href="#" class="btn addCart"
+                <button ng-click="addCartUser(x.id)" class="btn addCart"
                   ><i class="fa fa-cart-plus iconcart" aria-hidden="true"></i
                 ></a>
               </div>
@@ -82,15 +82,20 @@
   <div aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
+        <a
+          class="page-link"
+          ng-click="previousPage($event)"
+          aria-label="Previous"
+          ng-if="trangHT+1 > 1"
+        >
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
       <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
+        <a class="page-link">{{trangHT +1}} / {{tongSoTrang}}</a>
+      </li>
+      <li class="page-item" ng-if="trangHT+1 != tongSoTrang">
+        <a class="page-link" ng-click="nextPage($event)" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>

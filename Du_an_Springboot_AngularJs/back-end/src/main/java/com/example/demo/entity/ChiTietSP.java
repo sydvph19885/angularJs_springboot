@@ -28,26 +28,6 @@ public class ChiTietSP {
     @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_mau_sac")
     private MauSac mauSac;
-    @ManyToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "id_san_pham")
-    private SanPham sanPham;
-    @ManyToOne(cascade = CascadeType.DETACH)
-    @JoinColumn(name = "id_dongsp")
-    private DongSP dongSanPham;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ChiTietSP chiTietSP = (ChiTietSP) o;
-        return namBH == chiTietSP.namBH && soLuongTon == chiTietSP.soLuongTon && Float.compare(chiTietSP.giaNhap, giaNhap) == 0 && Float.compare(chiTietSP.giaBan, giaBan) == 0 && Objects.equals(id, chiTietSP.id) && Objects.equals(nhaSanXuat, chiTietSP.nhaSanXuat) && Objects.equals(mauSac, chiTietSP.mauSac) && Objects.equals(sanPham, chiTietSP.sanPham) && Objects.equals(dongSanPham, chiTietSP.dongSanPham) && Objects.equals(moTa, chiTietSP.moTa) && Objects.equals(image, chiTietSP.image);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nhaSanXuat, mauSac, sanPham, dongSanPham, namBH, moTa, image, soLuongTon, giaNhap, giaBan);
-    }
-
     @Column(name = "nambh")
     private int namBH;
     @Column(name = "mo_ta", columnDefinition = "NVARCHAR(MAX)")
@@ -66,21 +46,9 @@ public class ChiTietSP {
     private Date ngayNhap;
     @Column(name = "voucher")
     private int voucher;
+    @Column(name = "tensanpham",columnDefinition = "NVARCHAR(MAX)")
+    private String tenSanPham;
 
 
-    public ChiTietSP(NhaSanXuat nhaSanXuat, MauSac mauSac, SanPham sanPham, DongSP dongSanPham, int namBH, String moTa, String image, int soLuongTon, float giaNhap, float giaBan, int size, Date ngayNhap, int voucher) {
-        this.nhaSanXuat = nhaSanXuat;
-        this.mauSac = mauSac;
-        this.sanPham = sanPham;
-        this.dongSanPham = dongSanPham;
-        this.namBH = namBH;
-        this.moTa = moTa;
-        this.image = image;
-        this.soLuongTon = soLuongTon;
-        this.giaNhap = giaNhap;
-        this.giaBan = giaBan;
-        this.size = size;
-        this.ngayNhap = ngayNhap;
-        this.voucher = voucher;
-    }
+
 }

@@ -14,53 +14,41 @@
             <div class="tab-pane active" id="pic-1">
               <img
                 style="height: 450px"
-                src="../../../../src/main/static/image/{{detail.image}}"
+                src="http://localhost:8081/image/{{detail.image}}"
               />
-            </div>
-            <div class="tab-pane" id="pic-2">
-              <img src="http://placekitten.com/400/252" />
-            </div>
-            <div class="tab-pane" id="pic-3">
-              <img src="http://placekitten.com/400/252" />
-            </div>
-            <div class="tab-pane" id="pic-4">
-              <img src="http://placekitten.com/400/252" />
-            </div>
-            <div class="tab-pane" id="pic-5">
-              <img src="http://placekitten.com/400/252" />
             </div>
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
             <li class="active">
               <a data-target="#pic-1" data-toggle="tab"
-                ><img src="../../../../src/main/static/image/{{detail.image}}"
+                ><img src="http://localhost:8081/image/{{detail.image}}"
               /></a>
             </li>
             <li>
               <a data-target="#pic-2" data-toggle="tab"
-                ><img src="../../../../src/main/static/image/{{detail.image}}"
+                ><img src="http://localhost:8081/image/{{detail.image}}"
               /></a>
             </li>
             <li>
               <a data-target="#pic-3" data-toggle="tab"
-                ><img src="../../../../src/main/static/image/{{detail.image}}"
+                ><img src="http://localhost:8081/image/{{detail.image}}"
               /></a>
             </li>
             <li>
               <a data-target="#pic-4" data-toggle="tab"
-                ><img src="../../../../src/main/static/image/{{detail.image}}"
+                ><img src="http://localhost:8081/image/{{detail.image}}"
               /></a>
             </li>
             <li>
               <a data-target="#pic-5" data-toggle="tab"
-                ><img src="../../../../src/main/static/image/{{detail.image}}"
+                ><img src="http://localhost:8081/image/{{detail.image}}"
               /></a>
             </li>
           </ul>
         </div>
         <div class="details col-md-6">
           <p style="color: red; font-size: 20px">Sản phẩm:</p>
-          <h3 class="product-title">{{detail.sanPham.ten}}</h3>
+          <h3 class="product-title">{{detail.tenSanPham}}</h3>
           <div class="rating">
             <div class="stars">
               <span class="fa fa-star checked"></span>
@@ -88,14 +76,14 @@
               >{{detail.size}}</span
             >
           </h5>
-          <h5 class="colors">
-            màu sắc:
+          <h5 class="sizes">
+            Màu sắc:
             <span
-              class="not-available"
+              class="size"
               data-toggle="tooltip"
-              title="Not In store"
+              title="small"
               style="color: red"
-              >{{detail.mauSac.ten}}</span
+              >{{detail.mauSac.ten | json}}</span
             >
           </h5>
           <h5 class="sizes">

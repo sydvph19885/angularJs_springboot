@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IChiTietSanPhamRepository extends JpaRepository<ChiTietSP,String> {
 
-    Page<ChiTietSP> findChiTietSPBySanPham_TenContains(String tenSp, Pageable pageable);
+    Page<ChiTietSP> findChiTietSPByTenSanPhamContains(String tenSp, Pageable pageable);
 
 }

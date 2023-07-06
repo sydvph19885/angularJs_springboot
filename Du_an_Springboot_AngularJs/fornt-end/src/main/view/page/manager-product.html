@@ -1,0 +1,752 @@
+<main>
+  <br />
+  <div class="container">
+    <div class="rectangle imgCarDetail">
+      <img
+        ng-if="imagePath != null"
+        width="350px"
+        height="350px"
+        id="previewImage"
+        src="{{imagePath}}"
+        class="img-fluid rounded-pill"
+        alt="Townhouses and Skyscrapers"
+      />
+    </div>
+  </div>
+
+  <form class="container" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-6">
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Tên sản phẩm</span>
+          <input
+            type="text"
+            class="form-control"
+            required
+            placeholder="Tên sản phẩm"
+            ng-model="add.tenSanPham"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-10">
+            Nhà sản xuất
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              ng-model="add.nhaSanXuat"
+            >
+              <option value="{{nsx}}" ng-repeat="nsx in listNSX">
+                {{nsx.ten}}
+              </option>
+            </select>
+          </div>
+          <div class="col-2">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn"
+              style="border: 1px solid black; margin-top: 25px"
+              data-bs-toggle="modal"
+              data-bs-target="#nsx"
+            >
+              +
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-10">
+            Màu sắc
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              ng-model="add.mauSac"
+            >
+              <option value="{{ms}}" ng-repeat="ms in listMauSac">
+                {{ms.ten}}
+              </option>
+            </select>
+          </div>
+          <div class="col-2">
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn"
+              style="border: 1px solid black; margin-top: 25px"
+              data-bs-toggle="modal"
+              data-bs-target="#mauSac"
+            >
+              +
+            </button>
+          </div>
+        </div>
+
+        <br />
+        Size
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="size"
+          ng-model="add.size"
+        >
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">37</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="41">42</option>
+          <option value="43">43</option>
+        </select>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Mô tả</span>
+          <textarea
+            type="text"
+            class="form-control"
+            required
+            placeholder="Mô tả"
+            name="moTa"
+            ng-model="add.moTa"
+            aria-describedby="addon-wrapping"
+          ></textarea>
+        </div>
+
+        <p style="color: red; text-align: center"></p>
+      </div>
+      <div class="col-6">
+        <br />
+        <div class="row">
+          <div class="col-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                >Năm bảo hành</span
+              >
+              <input
+                type="number"
+                class="form-control"
+                required
+                placeholder="Năm bảo hành"
+                ng-model="add.namBH"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+          </div>
+          <div class="col-3" style="margin-top: 5px"></div>
+        </div>
+
+        <br />
+        <div class="row">
+          <div class="col-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">Số lượng</span>
+              <input
+                type="number"
+                class="form-control"
+                required
+                placeholder="Số lượng"
+                ng-model="add.soLuongTon"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+          </div>
+          <div class="col-3" style="margin-top: 5px"></div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">Giá nhập</span>
+              <input
+                type="number"
+                class="form-control"
+                required
+                placeholder="Giá nhập"
+                ng-model="add.giaNhap"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+          </div>
+          <div class="col-3" style="margin-top: 5px"></div>
+        </div>
+
+        <br />
+        <div class="row">
+          <div class="col-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">Giá bán</span>
+              <input
+                type="number"
+                class="form-control"
+                required
+                placeholder="Giá bán"
+                ng-model="add.giaBan"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+          </div>
+          <div class="col-3" style="margin-top: 5px"></div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping">Voucher</span>
+              <input
+                type="number"
+                class="form-control"
+                required
+                placeholder="voucher %"
+                ng-model="add.voucher"
+                aria-describedby="addon-wrapping"
+              />
+              <span class="input-group-text" id="addon-wrapping">%</span>
+            </div>
+          </div>
+          <div class="col-3"><p style="color: red; font-weight: bold"></p></div>
+        </div>
+        <br />
+
+        <br />
+        <div class="row">
+          <div class="col-2">Ảnh</div>
+          <div class="col-10">
+            <input type="file" id="image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div style="display: flex; justify-content: center; align-items: center">
+      <button
+        type="button"
+        class="btn btn-primary"
+        style="width: 300px"
+        data-bs-toggle="modal"
+        data-bs-target="#xacNhan"
+      >
+        Thêm
+      </button>
+      <br />
+      <div
+        class="modal fade"
+        id="xacNhan"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Xác nhận</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Bạn có chắc chắn!</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                ng-click="saveProduct($event)"
+              >
+                Lưu
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <br />
+  <br />
+  <!-- <%--    dong san pham--%> -->
+  <section>
+    <!-- Modal -->
+    <form method="post" action="/manage-product/dong-sp/add">
+      <div
+        class="modal fade"
+        id="dongSanPham"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Nhập tên dòng sản phẩm
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group flex-nowrap">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Tên dòng sản phẩm"
+                  name="tenDongSanPham"
+                  required
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!-- <%--    mau sac--%> -->
+  <section>
+    <!-- Modal -->
+    <form>
+      <div
+        class="modal fade"
+        id="mauSac"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Nhập tên màu sắc
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group flex-nowrap">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  placeholder="Tên màu sắc"
+                  ng-model="nsx.ten"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                ng-click="saveMauSac($event)"
+                class="btn btn-primary"
+              >
+                Lưu
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!-- <%--    NHA SAN XUAT--%> -->
+  <section>
+    <!-- Modal -->
+    <form>
+      <div
+        class="modal fade"
+        id="nsx"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Nhập tên nhà sản xuất
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group flex-nowrap">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  placeholder="Tên nhà sản xuất"
+                  ng-model="nsx.ten"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                ng-click="saveNsx($event)"
+              >
+                Lưu
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+  <section>
+    <table class="table table-header table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Tên sản phẩm</th>
+          <th scope="col">NSX</th>
+          <th scope="col">Màu sắc</th>
+          <th scope="col">Size</th>
+          <th scope="col">Năm BH</th>
+          <th scope="col">Image</th>
+          <th scope="col">Giá nhập</th>
+          <th scope="col">Giá bán</th>
+          <th scope="col">Discount(%)</th>
+          <th scope="col">Số lượng tồn</th>
+          <th scope="col">Mô tả</th>
+          <th scope="col">Acction</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="x in listSanPham">
+        <tr>
+          <td>{{x.tenSanPham}}</td>
+          <td>{{x.nhaSanXuat.ten}}</td>
+          <td>{{x.mauSac.ten}}</td>
+          <td>{{x.size}}</td>
+          <td>{{x.namBH}}</td>
+          <td>
+            <img class="imgSp" src="http://localhost:8081/image/{{x.image}}" />
+          </td>
+          <td>{{x.giaNhap | number:format}}</td>
+          <td>{{x.giaBan | number:format}}</td>
+          <td>{{x.voucher}}</td>
+          <td>{{x.soLuongTon}}</td>
+          <td>{{x.moTa}}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary iconSee"
+              data-bs-toggle="modal"
+              data-bs-target="#detail"
+              ng-click="detailManager($event,$index)"
+            >
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary iconSee"
+              data-bs-toggle="modal"
+              data-bs-target="#delete"
+              ng-click="delete($event,x.id)"
+            >
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+<br />
+
+<!-- Modal detail-->
+<div
+  class="modal fade"
+  id="detail"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          <div class="container">
+            <div class="rectangle imgCarDetail cardetailss">
+              <img
+                ng-if="imagePath != null"
+                width="150px"
+                height="150px"
+                id="previewImage"
+                src="{{imagePath}}"
+                class="img-fluid rounded-pill"
+                alt="Townhouses and Skyscrapers"
+              />
+            </div>
+          </div>
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- detail -->
+        <input
+          type="file"
+          onchange="previewImage(event)"
+          ng-model="detail.image"
+          id="imgNamess"
+        />
+        <br />
+        <br />
+        <div class="input-group flex-nowrap">
+          <input ng-model="detail.id" type="hidden" />
+          <span class="input-group-text" id="addon-wrapping">Tên sản phẩm</span>
+          <input
+            type="text"
+            class="form-control"
+            required
+            placeholder="Tên sản phẩm"
+            ng-model="detail.tenSanPham"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <br />
+        Nhà sản xuất
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          ng-model="detail.nhaSanXuat"
+        >
+          <option
+            value="{{nsx}}"
+            ng-selected="nsx.ten === detail.nhaSanXuat.ten"
+            ng-repeat="nsx in listNSX"
+          >
+            {{nsx.ten}}
+          </option>
+        </select>
+        <br />
+        Màu sắc
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          ng-model="detail.mauSac"
+        >
+          <option
+            value="{{ms}}"
+            ng-selected="ms.ten === detail.mauSac.ten"
+            ng-repeat="ms in listMauSac"
+          >
+            {{ms.ten}}
+          </option>
+        </select>
+        <br />
+        Size
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          name="size"
+          ng-model="detail.size"
+        >
+          <option value="35" ng-selected="detail.size === 35">35</option>
+          <option value="36" ng-selected="detail.size === 36">36</option>
+          <option value="37" ng-selected="detail.size === 37">37</option>
+          <option value="38" ng-selected="detail.size === 38">38</option>
+          <option value="39" ng-selected="detail.size === 39">39</option>
+          <option value="40" ng-selected="detail.size === 40">40</option>
+          <option value="41" ng-selected="detail.size === 41">41</option>
+          <option value="41" ng-selected="detail.size === 42">42</option>
+          <option value="43" ng-selected="detail.size === 43">43</option>
+        </select>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Năm bảo hành</span>
+          <input
+            type="number"
+            class="form-control"
+            value="{{detail.namBH}}"
+            placeholder="Năm bảo hành"
+            ng-model="detail.namBH"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Số lượng</span>
+          <input
+            type="number"
+            class="form-control"
+            value="{{detail.soLuongTon}}"
+            required
+            placeholder="Số lượng"
+            ng-model="detail.soLuongTon"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Giá nhập</span>
+          <input
+            type="number"
+            class="form-control"
+            value="{{detail.giaNhap}}"
+            required
+            placeholder="Giá nhập"
+            ng-model="detail.giaNhap"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Giá bán</span>
+          <input
+            type="number"
+            class="form-control"
+            value="{{detail.giaBan}}"
+            required
+            placeholder="Giá bán"
+            ng-model="detail.giaBan"
+            aria-describedby="addon-wrapping"
+          />
+        </div>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Voucher</span>
+          <input
+            type="number"
+            class="form-control"
+            value="{{detail.voucher}}"
+            required
+            placeholder="voucher %"
+            ng-model="detail.voucher"
+            aria-describedby="addon-wrapping"
+          />
+          <span class="input-group-text" id="addon-wrapping">%</span>
+        </div>
+        <br />
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">Mô tả</span>
+          <textarea
+            type="text"
+            class="form-control"
+            required
+            placeholder="Mô tả"
+            name="moTa"
+            ng-model="detail.moTa"
+            aria-describedby="addon-wrapping"
+          >
+{{detail.moTa}}</textarea
+          >
+        </div>
+
+        <!-- detail -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          ng-click="updateProduct($event)"
+          class="btn btn-primary"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="row">
+  <!-- page -->
+  <div class="col-6">
+    <section class="page container text-center">
+      <div aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a
+              class="page-link"
+              ng-click="previousPage($event)"
+              aria-label="Previous"
+              ng-if="trangHT+1 > 1"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link">{{trangHT +1}} / {{tongSoTrang}}</a>
+          </li>
+          <li class="page-item" ng-if="trangHT+1 != tongSoTrang">
+            <a class="page-link" ng-click="nextPage($event)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div class="col-6">
+    <!-- size -->
+    Xem
+    <select
+      aria-label="Default select example"
+      ng-model="size"
+      ng-change="pageSize()"
+    >
+      <option selected value="05">05</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+    mục
+  </div>
+</section>

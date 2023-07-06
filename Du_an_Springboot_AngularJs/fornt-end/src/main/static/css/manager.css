@@ -1,0 +1,18 @@
+.imgSp {
+  height: 100px;
+  width: 100px;
+}
+th {
+  color: red;
+}
+.iconSee {
+  border: none;
+  color: rgb(84, 84, 195);
+  background-color: aliceblue;
+}
+.imgCarDetail{
+  display: flex; justify-content: center; align-items: center"
+}
+.cardetailss{
+  margin-left: 130px;
+}
